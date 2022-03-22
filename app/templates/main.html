@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %} Ghana Meteorological Agency {% endblock %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+.titre-adt {
+    grid-area: headr;
+}
+
+.image-hadt {
+    grid-area: hadt;
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        'headr headr headr headr headr headr headr headr'
+        'hadt hadt hadt hadt hadt hadt hadt hadt';
+    grid-gap: 5px;
+    padding: 2px;
+}
+
+.container>div {
+    text-align: center;
+}
+
+.imgADTWelcome {
+    width: 600px;
+    height: 500px;
+}
+
+.daty-now {
+    text-align: center;
+}
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="titre-adt">
+        <h1>Welcome to GMet AWS Data Tools (ADT)</h1>
+    </div>
+    <div class="image-hadt">
+        <img class="imgADTWelcome" src="{{ url_for('static', filename='images/Homer.png') }}" />
+    </div>
+</div>
+<div>
+    <p class="daty-now"> {{ date_now("%Y-%m-%d %H:%M") }}</p>
+</div>
+{% endblock %}
+{% block javascript %}
+<script>
+</script>
+{% endblock %}
