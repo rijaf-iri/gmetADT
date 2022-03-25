@@ -1,5 +1,6 @@
 $(document).ready(() => {
-    setAWSAggrDataTime();
+    var back_nb_Day = 365;
+    setAWSAggrDataTime(back_nb_Day);
 
     $.getJSON('/readCoords', (json) => {
         AWS_JSON = json;
@@ -56,11 +57,11 @@ $(document).ready(() => {
 
     var today = new Date();
     var daty2 = dateFormat(today, "yyyy-mm-dd");
-    today.setDate(today.getDate() - 365);
+    today.setDate(today.getDate() - back_nb_Day);
     var daty1 = dateFormat(today, "yyyy-mm-dd");
 
     var data0 = {
-        "net_aws": "3_SUTRON14-NAIROBI",
+        "net_aws": "1_AD510927-TEMA",
         "var_hgt": "5_1",
         "pars": "Tot",
         "tstep": "daily",

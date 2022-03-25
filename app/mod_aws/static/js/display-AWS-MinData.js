@@ -1,5 +1,6 @@
 $(document).ready(() => {
-    setAWSMinDataTime();
+    var back_nb_Day = 30;
+    setAWSMinDataTime(back_nb_Day);
 
     //
     $.getJSON('/readCoords', (json) => {
@@ -16,13 +17,6 @@ $(document).ready(() => {
         $('#stationDispAWS option[value=1_AD510927-TEMA]').attr('selected', true);
         AWS_INFO = getAWSInfos('1_AD510927-TEMA');
         setAWSVariableSelect('1_AD510927-TEMA');
-
-        // Integrate to R function from /readCoords
-        AWS_TimeRange = getAWSTimeRange('/getAWSTimeRange', {
-            'id': "AD510927-TEMA",
-            'net': '1'
-        });
-
         //
         setAWSParamSelect("5_1");
         displayMetadata();
@@ -34,11 +28,6 @@ $(document).ready(() => {
         //
         AWS_INFO = getAWSInfos(aws);
         setAWSVariableSelect(aws);
-        //
-        AWS_TimeRange = getAWSTimeRange('/getAWSTimeRange', {
-            'id': aws,
-            'net': AWS_INFO.network_code
-        });
         // 
         var var_height = $("#awsObsVar option:selected").val();
         setAWSParamSelect(var_height);
@@ -76,7 +65,7 @@ $(document).ready(() => {
 
     var today = new Date();
     var daty2 = dateFormat(today, "yyyy-mm-dd-hh-MM");
-    today.setDate(today.getDate() - 30);
+    today.setDate(today.getDate() - back_nb_Day);
     var daty1 = dateFormat(today, "yyyy-mm-dd-hh-MM");
 
     var data0 = {

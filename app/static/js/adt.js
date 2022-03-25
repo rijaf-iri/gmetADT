@@ -1,6 +1,7 @@
 var mapCenterLON = -1.031824;
 var mapCenterLAT = 7.956025;
 var mapMetService = "GMet";
+var metServiceURL = "https://www.meteo.gov.gh/gmet/"
 
 /////////////////
 
@@ -8,9 +9,6 @@ var AWS_DATA = new Object();
 AWS_DATA.status = "no-data";
 var AWS_JSON = "";
 var AWS_INFO = "";
-
-// integrate to R function
-var AWS_TimeRange = "";
 
 // 
 var AWS_dataMinVarObj;
@@ -241,7 +239,7 @@ function createLeafletTileLayer(container, aws_tile = true) {
             latFormatter: funlatFrmt
         }).addTo(mymap);
         // 
-        var meteo = ' | <a href="http://www.ethiomet.gov.et/">' + mapMetService + '</a>';
+        var meteo = ' | <a href="' + metServiceURL + '">' + mapMetService + '</a>';
         if (aws_tile) {
             var attribu = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
             var mytile = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -320,7 +318,7 @@ function changeLeafletTileLayer(container) {
         }
 
         var basemap = $(container + " option:selected").val();
-        var meteo = ' | <a href="http://www.ethiomet.gov.et/">' + mapMetService + '</a>';
+        var meteo = ' | <a href="' + metServiceURL + '">' + mapMetService + '</a>';
 
         switch (basemap) {
             case "openstreetmap":
@@ -934,6 +932,37 @@ function setDateTimeMapDataMin(n) {
     //
     var vmin = dObj.getMinutes();
     $("#minute3").val((vmin < 10 ? "0" : "") + vmin);
+    var vhour = dObj.getHours();
+    $("#hour3").val((vhour < 10 ? "0" : "") + vhour);
+    var vday = dObj.getDate();
+    $("#day3").val((vday < 10 ? "0" : "") + vday);
+    var vmon = dObj.getMonth() + 1;
+    $("#month3").val((vmon < 10 ? "0" : "") + vmon);
+
+    var years = $("#year3 option")
+        .map(function() { return $(this).val(); })
+        .get();
+    years = years.map(x => Number(x));
+    years = years.filter(x => x != 0);
+    var minyr = Math.min(...years);
+    var maxyr = Math.max(...years);
+
+    var thisYear = dObj.getFullYear();
+    var valYear;
+    if (thisYear < minyr) {
+        valYear = maxyr;
+    } else if (thisYear > maxyr) {
+        valYear = minyr;
+    } else {
+        valYear = thisYear;
+    }
+    $("#year3").val(valYear);
+}
+
+function setDateTimeMapDataHour(n) {
+    var dObj = getDateMap1Hour();
+    dObj.setHours(dObj.getHours() + n);
+    // 
     var vhour = dObj.getHours();
     $("#hour3").val((vhour < 10 ? "0" : "") + vhour);
     var vday = dObj.getDate();

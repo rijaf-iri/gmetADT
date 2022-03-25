@@ -1,5 +1,6 @@
 $(document).ready(() => {
-    setAWSAccumulRainTime();
+    var back_nb_Day = 90;
+    setAWSAccumulRainTime(back_nb_Day);
     ////////////
 
     $.getJSON('/readCoords', (json) => {
@@ -14,18 +15,18 @@ $(document).ready(() => {
             );
         });
 
-        $('#stationDispAWS option[value=3_SUTRON14-NAIROBI]').attr('selected', true);
-        AWS_INFO = getAWSInfos('2_860299-Mkushi');
+        $('#stationDispAWS option[value=1_AD510927-TEMA]').attr('selected', true);
+        AWS_INFO = getAWSInfos('1_AD510927-TEMA');
     });
 
     ////////////
     var today = new Date();
     var daty2 = dateFormat(today, "yyyy-mm-dd-hh");
-    today.setDate(today.getDate() - 180);
+    today.setDate(today.getDate() - back_nb_Day);
     var daty1 = dateFormat(today, "yyyy-mm-dd-hh");
 
     var data0 = {
-        "net_aws": "3_SUTRON14-NAIROBI",
+        "net_aws": "1_AD510927-TEMA",
         "accumul": "1",
         "tstep": "hourly",
         "start": daty1,
