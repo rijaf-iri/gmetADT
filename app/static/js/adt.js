@@ -222,6 +222,9 @@ function getVarNameColorKey(pars) {
     if (x == "8") { return 'RG'; }
     if (x == "10" | x == "11") { return 'FF'; }
     if (x == "14") { return 'ST'; }
+    if (x == "15") { return 'SUN'; }
+    if (x == "16") { return 'SPB'; }
+    if (x == "17") { return 'SECB'; }
 }
 
 /////////////////
