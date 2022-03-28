@@ -1,5 +1,6 @@
 var mapCenterLON = -1.031824;
 var mapCenterLAT = 7.956025;
+var mapZoom = 6.5;
 var mapMetService = "GMet";
 var metServiceURL = "https://www.meteo.gov.gh/gmet/";
 var initAWS = '1_AD510927-TEMA';
@@ -231,7 +232,7 @@ function createLeafletTileLayer(container, aws_tile = true) {
         var mymap = L.map(container, {
             center: [mapCenterLAT, mapCenterLON],
             minZoom: 2,
-            zoom: 5.8,
+            zoom: mapZoom,
             zoomControl: false
         });
         // 

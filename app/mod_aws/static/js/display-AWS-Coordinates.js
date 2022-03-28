@@ -2,7 +2,7 @@ $(document).ready(() => {
     var mymap = L.map('mapAWSCoords', {
         center: [mapCenterLAT, mapCenterLON],
         minZoom: 2,
-        zoom: 6,
+        zoom: mapZoom,
         zoomControl: false
     });
 
