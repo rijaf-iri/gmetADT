@@ -11,14 +11,14 @@ today.setDate(today.getDate() - 30);
 var daty1 = dateFormat(today, "yyyy-mm-dd");
 
 var data0 = {
-    "net_aws": "1_AD510927-TEMA",
+    "net_aws": initAWS,
     "tstep": "daily",
     "start": daty1,
     "end": daty2
 };
 
 disp_Table_dataAggrAWS(data0)
-$('#pTable').html("TEMA - AD510927 - Adcon");
+$('#pTable').html(initHTMLAWS);
 
 //
 $("#dispAWSTable").on("click", () => {

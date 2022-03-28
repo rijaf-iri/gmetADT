@@ -1,8 +1,8 @@
 $(document).ready(() => {
     var back_nb_Day = 30;
-    setAWSMinDataTime(back_nb_Day);
 
     //
+    setAWSMinDataTime(back_nb_Day);
     $.getJSON('/readCoords', (json) => {
         AWS_JSON = json;
         $('#stationDispAWS').attr('enabled', 'true');
@@ -14,11 +14,11 @@ $(document).ready(() => {
             );
         });
         // Initialization
-        $('#stationDispAWS option[value=1_AD510927-TEMA]').attr('selected', true);
-        AWS_INFO = getAWSInfos('1_AD510927-TEMA');
-        setAWSVariableSelect('1_AD510927-TEMA');
+        $('#stationDispAWS option[value=' + initAWS + ']').attr('selected', true);
+        AWS_INFO = getAWSInfos(initAWS);
+        setAWSVariableSelect(initAWS);
         //
-        setAWSParamSelect("5_1");
+        setAWSParamSelect(initVAR);
         displayMetadata();
     });
 
@@ -69,9 +69,9 @@ $(document).ready(() => {
     var daty1 = dateFormat(today, "yyyy-mm-dd-hh-MM");
 
     var data0 = {
-        "net_aws": "1_AD510927-TEMA",
-        "var_hgt": "5_1",
-        "stat": "4",
+        "net_aws": initAWS,
+        "var_hgt": initVAR,
+        "stat": initSTAT,
         "start": daty1,
         "end": daty2,
         "plotrange": 0
@@ -211,8 +211,6 @@ function plot_Map_dataMinAWS(daty) {
 
 ////
 
-var OUTDATA = "";
-
 function plot_TS_dataMinAWS(data) {
     $.ajax({
         dataType: "json",
@@ -220,7 +218,6 @@ function plot_TS_dataMinAWS(data) {
         data: data,
         timeout: 120000,
         success: (json) => {
-            OUTDATA = json;
             highcharts_TS_dataMinAWS(json);
             $('#errorMSG').empty();
         },

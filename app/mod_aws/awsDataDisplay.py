@@ -269,6 +269,12 @@ def downTableAggrDataSelCSV():
 
 ################
 
+@mod_aws.route("/getWindHeight")
+def getWindHeight():
+    robj = mtoadt.getWindHeight(dirAWS)
+    pyobj = json.loads(robj[0])
+    return json.dumps(pyobj)
+
 
 @mod_aws.route("/readCoordsWind")
 def readCoordsWind():

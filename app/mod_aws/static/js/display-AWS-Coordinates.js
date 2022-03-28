@@ -22,7 +22,7 @@ $(document).ready(() => {
 
     //////
     var attribu = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
-    attribu = attribu + ' | <a href="https://www.ethiomet.gov.et">ZMD</a>';
+    attribu = attribu + ' | <a href="' + metServiceURL + '">' + mapMetService + '</a>';
     var mytile = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: attribu,
         maxZoom: 19,

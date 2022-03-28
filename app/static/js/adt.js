@@ -1,7 +1,16 @@
 var mapCenterLON = -1.031824;
 var mapCenterLAT = 7.956025;
 var mapMetService = "GMet";
-var metServiceURL = "https://www.meteo.gov.gh/gmet/"
+var metServiceURL = "https://www.meteo.gov.gh/gmet/";
+var initAWS = '1_AD510927-TEMA';
+var initHTMLAWS = "TEMA - AD510927 - Adcon";
+var initVAR = "5_1";
+var initSTAT = "4";
+var initPAR = "Tot";
+var initHTMLVAR = "Precipitation - Total";
+// speed_direction
+var initWindHGT = "10_10";
+var firstYear = 2015;
 
 /////////////////
 

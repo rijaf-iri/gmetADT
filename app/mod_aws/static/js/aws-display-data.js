@@ -43,7 +43,7 @@ function setAWSVariableSelect(aws) {
             );
         }
     }
-    $('#awsObsVar option[value=5_1]').attr('selected', true);
+    $('#awsObsVar option[value=' + initVAR + ']').attr('selected', true);
 }
 
 //
