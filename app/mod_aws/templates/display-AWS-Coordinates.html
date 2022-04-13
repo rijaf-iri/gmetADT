@@ -67,8 +67,9 @@
                             <div>
                                 <label class="control-label">Select AWS network</label>
                                 <select name="awsnet" id="awsnet" class="form-control">
-                                    <option value="1" selected>ADCON</option>
-                                    <option value="2">TAHMO</option>
+                                    <option value="1" selected>ADCON SYNOP</option>
+                                    <option value="2">ADCON AWS (RAINGAGE & AGRO)</option>
+                                    <option value="3">TAHMO</option>
                                 </select>
                             </div>
                             <div>
@@ -103,7 +104,15 @@
                                             <img class="pinstatus" src="{{ url_for('static', filename='lib/Plugins-leaflet/leaflet-color-markers/img/marker-icon-2x-blue.png') }}">
                                         </td>
                                         <td>
-                                            Adcon, network_code = 1
+                                            Adcon Synop, network_code = 1
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img class="pinstatus" src="{{ url_for('static', filename='lib/Plugins-leaflet/leaflet-color-markers/img/marker-icon-2x-green.png') }}">
+                                        </td>
+                                        <td>
+                                            Adcon AWS, network_code = 2
                                         </td>
                                     </tr>
                                     <tr>
@@ -111,7 +120,7 @@
                                             <img class="pinstatus" src="{{ url_for('static', filename='lib/Plugins-leaflet/leaflet-color-markers/img/marker-icon-2x-gold.png') }}">
                                         </td>
                                         <td>
-                                            Tahmo, network_code = 2
+                                            Tahmo, network_code = 3
                                         </td>
                                     </tr>
                                     <tr>

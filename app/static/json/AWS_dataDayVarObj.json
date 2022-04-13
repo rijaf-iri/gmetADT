@@ -7,6 +7,12 @@
       "height": 1.6
     },
     {
+      "var_code": 8,
+      "var_name": "Total radiation",
+      "var_units": "W/m2",
+      "height": 2
+    },
+    {
       "var_code": 2,
       "var_name": "Air temperature",
       "var_units": "degC",
@@ -25,16 +31,16 @@
       "height": 2
     },
     {
-      "var_code": 8,
-      "var_name": "Total radiation",
-      "var_units": "W/m2",
-      "height": 2
+      "var_code": 10,
+      "var_name": "Wind speed",
+      "var_units": "m/s",
+      "height": 10
     },
     {
       "var_code": 10,
       "var_name": "Wind speed",
       "var_units": "m/s",
-      "height": 10
+      "height": 2
     }
   ]
 }
