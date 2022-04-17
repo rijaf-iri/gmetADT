@@ -571,6 +571,15 @@ function leaflet_Map_dataAggrAWS(pars, json) {
     //
     var vkey = getVarNameColorKey(pars);
     $('#colKeyMapVar').empty();
+    var kolKey = json.key[vkey];
+    if (kolKey == undefined) {
+        var txt = $("#awsSpVar option:selected").html();
+        var popup = L.popup()
+            .setLatLng([mapCenterLAT, mapCenterLON])
+            .setContent("No available data for " + txt)
+            .openOn(mymap);
+        return false;
+    }
 
     var var_sp = pars.split('_');
     var pars1 = var_sp[0] + "_" + var_sp[1];
@@ -582,7 +591,7 @@ function leaflet_Map_dataAggrAWS(pars, json) {
         'margin-bottom': '2px',
         'font-size': '10'
     }).appendTo('#colKeyMapVar');
-    $('#colKeyMapVar').append(createColorKeyH(json.key[vkey]));
+    $('#colKeyMapVar').append(createColorKeyH(kolKey));
     $('#colKeyMapVar .ckeyh').css({
         'width': '290px',
         'height': '35px'
